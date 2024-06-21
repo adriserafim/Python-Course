@@ -2,7 +2,7 @@ import pyautogui # Serve para presonar alguma tecla do seu teclado para você
 import time # Macador de tempo
 import threading # Faz com que as funções funcionem ao mesmo tempo
 
-control = 3
+control = 1
 time_attack = 1.34
 time_skill_1 = 2.25
 time_skill_2 = 2.25
@@ -26,21 +26,25 @@ def press_v_every():
 def press_f1_every():
     while True:
         pyautogui.press('q')
+        pyautogui.press('5') # Pressonando a tecla 5 ele ira parar de atacar e podera dar ataque fantasma
         time.sleep(time_skill_1)
 
 def press_f2_every():
     while True:
         pyautogui.press('w')
+        pyautogui.press('5')
         time.sleep(time_skill_2)
 
 def press_f3_every():
     while True:
         pyautogui.press('e')
+        pyautogui.press('5')
         time.sleep(time_skill_3)
 
 def press_f4_every():
     while True:
         pyautogui.press('r')
+        pyautogui.press('5')
         time.sleep(time_skill_4)
 
 # Criação das threads para executar as funções simultaneamente
