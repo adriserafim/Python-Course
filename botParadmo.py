@@ -3,7 +3,7 @@ import time # Macador de tempo
 import threading # Faz com que as funções funcionem ao mesmo tempo
 import keyboard # É utilizado para capturar eventos do teclado, como pressionamento e soltura de teclas
 
-control = 1
+control = 2
 time_attack = 5
 time_skill_1 = 4
 time_skill_2 = 13
@@ -184,8 +184,29 @@ def main():
                     while keyboard.is_pressed(';'):  # Espera a tecla ser liberada
                         pass
             time.sleep(0.1)  # Pequena pausa para evitar uso excessivo da CPU
+        
+        if control ==2:
+           if keyboard.is_pressed('-'):
+                if thread_a is None or not thread_a.is_alive():
+                    print("Iniciando...")
+                    start_thread_f1()
+                    start_thread_a()
+                    start_thread_v()
+                    print(f"Pressionando a tecla 'a' a cada {time_attack} segundos e a tecla 'v' a cada {time_drop} segundos.")
+                    while keyboard.is_pressed('-'):  # Espera a tecla ser liberada
+                        pass
+            if keyboard.is_pressed(';'):
+                if thread_a is not None and thread_a.is_alive():
+                    print("Parando...")
+                    stop_thread_f1()
+                    stop_thread_a()
+                    stop_thread_v()
+                    print("Parado.")
+                    while keyboard.is_pressed(';'):  # Espera a tecla ser liberada
+                        pass
+            time.sleep(0.1)  # Pequena pausa para evitar uso excessivo da CPU 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # É uma convenção no Python usada para garantir que um bloco de código seja executado somente quando o script é executado diretamente, e não quando ele é importado como um módulo em outro script.
     main()
 
 # Início das threads
