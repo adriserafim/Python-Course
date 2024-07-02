@@ -13,8 +13,8 @@ import random # importa uma bibliotera para gerar números randômicos
 #    numeros_ponderados = random.choices(numeros, weights=pesos, k=n) # .choices Ira retornar um números aleatório, essa feramenta tem a opição de colocar peso na escolha colocando a codificação de weights 
 #    return numeros_ponderados
 
-def numeros_loteria(pesos, n=5):
-    numeros = list(range(1, 81))
+def numeros_loteria(pesos, n=6):
+    numeros = list(range(1, 61))
     numeros_selecionados = [] # Isso esta criando uma matriz em branco que nos iremos utilizar como lista
 
     for _ in range(n):
@@ -31,51 +31,67 @@ def numeros_loteria(pesos, n=5):
 # Defina os pesos para cada número de 1 a 60
 # Neste exemplo, o peso padrão é 1 para todos os números
 #pesos = [1] * 60
-pesos = [1] * 80
+pesos = [1] * 60
 
 # Aumente a probabilidade de certos números:
 # Dar peso 10 para o número 7, 20 para o número 13 e 15 para o número 42
 #pesos[6] = 10 # PRESTE ATENÇÂO: A pesar de estar pesos[6] o numero que esta sendo favorecido é o numero 7
-pesos[3] = 10
-pesos[8] = 10
-pesos[9] = 30
-pesos[10] = 10
-pesos[11] = 10
-pesos[12] = 30
-pesos[15] = 30
-pesos[17] = 30
-pesos[20] = 10
-pesos[21] = 10
-pesos[22] = 10
-pesos[26] = 10
+pesos[0] = 20
+pesos[1] = 40
+pesos[2] = 10
+pesos[3] = 20
+pesos[4] = 10
+pesos[5] = 20
+pesos[6] = 10
+pesos[7] = 10
+pesos[8] = 20
+pesos[9] = 20
+pesos[10] = 50
+pesos[11] = 20
+pesos[12] = 10
+pesos[13] = 10
+pesos[14] = 10
+pesos[15] = 50
+pesos[16] = 20
+pesos[17] = 10
+pesos[18] = 40
+pesos[19] = 30
+pesos[20] = 30
+pesos[22] = 20
+pesos[23] = 30
+pesos[24] = 70
+pesos[25] = 10
+pesos[26] = 40
+pesos[27] = 10
 pesos[28] = 10
-pesos[31] = 10
-pesos[34] = 10
+pesos[29] = 20
+pesos[31] = 40
+pesos[32] = 30
+pesos[33] = 20
+pesos[34] = 30
 pesos[35] = 10
-pesos[36] = 10
+pesos[36] = 30
 pesos[37] = 10
-pesos[46] = 10
+pesos[38] = 30
+pesos[40] = 30
+pesos[41] = 40
+pesos[42] = 30
+pesos[43] = 30
+pesos[44] = 40
+pesos[45] = 50
+pesos[46] = 50
+pesos[47] = 40
 pesos[48] = 30
-pesos[50] = 30
-pesos[52] = 30
-pesos[53] = 10
-pesos[56] = 30
+pesos[49] = 10
+pesos[50] = 10
+pesos[52] = 40
+pesos[53] = 20
+pesos[54] = 10
+pesos[55] = 20
+pesos[56] = 20
 pesos[57] = 10
-pesos[58] = 10
-pesos[59] = 10
-pesos[60] = 10
-pesos[61] = 30
-pesos[62] = 10
-pesos[63] = 30
-pesos[65] = 30
-pesos[66] = 10
-pesos[67] = 30
-pesos[68] = 10
-pesos[70] = 10
-pesos[71] = 10
-pesos[74] = 10
-pesos[75] = 10
-pesos[76] = 10
+pesos[58] = 30
+pesos[59] = 50
 # LEMBRETE: O valor dessa igualdade não é igual a porcentagem de escolha mas sim um recutado de uma conta de chance
 
 # CALCULO MATEMATICO DA PROBABILIDADE
