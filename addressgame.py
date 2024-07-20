@@ -24,22 +24,19 @@ def list_processes():
     for proc in psutil.process_iter(['pid', 'name']):
         print(f"Processo: {proc.info['name']} (PID: {proc.info['pid']})")
 
+def list_memory_maps(pid):
+    process = psutil.Process(pid)
+    for mmap in process.memory_maps():
+        print(mmap)
+
 # Listar todos os processos em execução
 print("Processos em execução:")
 list_processes()
 
 process_name = "GDMO.exe"  # Altere para o nome do seu processo, incluindo .exe
-address = 0x7FF6D0A00000  # Endereço de memória a ser lido (exemplo)
-size = 1024  # Tamanho dos dados a serem lidos (exemplo)
 
 pid = get_process_id(process_name)
 if pid:
-    process_handle = OpenProcess(PROCESS_ALL_ACCESS, False, pid)
-    if process_handle:
-        data = read_memory(process_handle, address, size)
-        if data:
-            print("Dados lidos:", data)
-        else:
-            print("Falha ao ler a memória")
+    list_memory_maps(pid)
 else:
     print(f"Processo '{process_name}' não encontrado")
