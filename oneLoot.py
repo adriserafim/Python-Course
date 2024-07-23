@@ -15,7 +15,7 @@ def get_process_id(process_name):
 def read_memory(process_handle, address, size):
     buffer = ctypes.create_string_buffer(size)
     bytesRead = ctypes.c_size_t()
-    if ReadProcessMemory(process_handle, address, buffer, size, ctypes.byref(bytesRead)):
+    if ReadProcessMemory(process_handle, ctypes.c_void_p(address), buffer, size, ctypes.byref(bytesRead)):
         return buffer.raw
     else:
         return None
@@ -41,5 +41,8 @@ if pid:
             print("Dados lidos:", data)
         else:
             print("Falha ao ler a memória")
+    else:
+        print(f"Não foi possível obter o handle do processo {pid}")
 else:
     print(f"Processo '{process_name}' não encontrado")
+
