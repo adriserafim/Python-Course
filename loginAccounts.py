@@ -11,11 +11,14 @@ wb = openpyxl.load_workbook(r"C:\Users\Usuario\OneDrive\Documentos\Arquivos Fút
 sheet = wb.active
 
 # Número de linhas a serem processadas
-start_row = 3
+start_row = 9
 end_row = 47
 
 # Caminho da imagem da área vermelha
-imagem_vermelha = r"C:\Users\Usuario\Documents\Curso de Python\Projetos Autônomos\ImagemParaCodigo.png"
+imagem_base = r"C:\Users\Usuario\Documents\Curso de Python\Projetos Autônomos\ImagemParaCodigo.png"
+
+# Definindo as coordenadas de destino
+x, y = 1076, 816
 
 # Loop para cada linha do arquivo Excel
 for row in range(start_row, end_row + 1):
@@ -66,6 +69,9 @@ for row in range(start_row, end_row + 1):
     wait_3_seconds()
 
     # Passo 15: Clicar na área (1076, 816)
+    # Movendo o mouse até a posição (1076, 816) suavemente em 3 segundo
+    pyautogui.moveTo(x, y, duration=3)
+    wait_3_seconds()
     pyautogui.click(1076, 816)
 
     # Passo 16: Esperar 3 segundos
@@ -118,9 +124,10 @@ for row in range(start_row, end_row + 1):
 
     # Passo 32: Clicar 2 vezes na área de cor vermelha da tela
     # Localizar a área com base na imagem fornecida
-    pos = pyautogui.locateCenterOnScreen(imagem_vermelha, confidence=0.8)
+    pos = pyautogui.locateCenterOnScreen(imagem_base, confidence=0.8)
     if pos:
-        pyautogui.doubleClick(pos)
+        pyautogui.click(pos)
+        pyautogui.click(pos)
 
     # Passo 33: Esperar 3 segundos
     wait_3_seconds()
