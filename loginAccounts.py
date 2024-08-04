@@ -11,15 +11,15 @@ wb = openpyxl.load_workbook(r"C:\Users\Usuario\OneDrive\Documentos\Arquivos Fút
 sheet = wb.active
 
 # Número de linhas a serem processadas
-start_row = 3
+start_row = 5
 end_row = 47
 
 # Caminho da imagem da área vermelha
 imagem_base = r"C:\Users\Usuario\Documents\Curso de Python\Projetos Autônomos\ImagemParaCodigo.png"
 
 # Definindo as coordenadas de destino
-pos
-tempo_espera = 1
+pos= 0, 0
+tempo_espera = 0.63
 
 # Loop para cada linha do arquivo Excel
 for row in range(start_row, end_row + 1):
@@ -103,7 +103,9 @@ for row in range(start_row, end_row + 1):
     # Passo 23: Clicar na área (818, 183)
     pos = 818, 183
     pyautogui.moveTo(pos, duration=3)
-    pyautogui.click()
+    pyautogui.mouseDown()
+    time.sleep(tempo_espera)
+    pyautogui.mouseUp()
 
     # Passo 24: Esperar 3 segundos
     wait_3_seconds()
@@ -111,7 +113,9 @@ for row in range(start_row, end_row + 1):
     # Passo 25: Clicar na área (588, 655)
     pos = 588, 655
     pyautogui.moveTo(pos, duration=3)
-    pyautogui.click()
+    pyautogui.mouseDown()
+    time.sleep(tempo_espera)
+    pyautogui.mouseUp()
 
     # Passo 26: Esperar 3 segundos
     wait_3_seconds()
@@ -119,7 +123,9 @@ for row in range(start_row, end_row + 1):
     # Passo 27: Clicar na área (741, 658)
     pos = 741, 658
     pyautogui.moveTo(pos, duration=3)
-    pyautogui.click()
+    pyautogui.mouseDown()
+    time.sleep(tempo_espera)
+    pyautogui.mouseUp()
 
     # Passo 28: Esperar 3 segundos
     wait_3_seconds()
@@ -127,7 +133,9 @@ for row in range(start_row, end_row + 1):
     # Passo 29: Clicar na área (658, 653)
     pos = 658, 653
     pyautogui.moveTo(pos, duration=3)
-    pyautogui.click()
+    pyautogui.mouseDown()
+    time.sleep(tempo_espera)
+    pyautogui.mouseUp()
 
     # Passo 30: Esperar 3 segundos
     wait_3_seconds()
@@ -139,8 +147,12 @@ for row in range(start_row, end_row + 1):
     # Localizar a área com base na imagem fornecida
     pos = pyautogui.locateCenterOnScreen(imagem_base, confidence=0.8)
     pyautogui.moveTo(pos, duration=3)
-    pyautogui.click()
-    pyautogui.click()
+    pyautogui.mouseDown()
+    time.sleep(tempo_espera)
+    pyautogui.mouseUp()
+    pyautogui.mouseDown()
+    time.sleep(tempo_espera)
+    pyautogui.mouseUp()
 
     # Passo 33: Esperar 3 segundos
     wait_3_seconds()
@@ -190,15 +202,3 @@ for row in range(start_row, end_row + 1):
 
 # Exibir mensagem de conclusão
 print("Processo concluído!")
-
-# Movendo o mouse até a posição (1076, 816)
-#pyautogui.moveTo(pos)
-
-# Pressionando e segurando o botão do mouse
-#pyautogui.mouseDown()
-
-# Esperando por tempo_espera segundos
-#time.sleep(tempo_espera)
-
-# Soltando o botão do mouse
-#pyautogui.mouseUp()
