@@ -11,7 +11,7 @@ wb = openpyxl.load_workbook(r"C:\Users\Usuario\OneDrive\Documentos\Arquivos Fút
 sheet = wb.active
 
 # Número de linhas a serem processadas
-start_row = 3
+start_row = 17
 end_row = 46
 
 # Caminho da imagem da área vermelha
@@ -21,6 +21,9 @@ imagem_base = r"C:\Users\Usuario\Documents\Curso de Python\Projetos Autônomos\I
 pos= 0, 0
 tempo_espera = 0.63
 tipos = 0
+contador= 0
+N_notif = 1
+notif= False
 
 # Loop para cada linha do arquivo Excel
 for row in range(start_row, end_row + 1):
@@ -64,8 +67,18 @@ for row in range(start_row, end_row + 1):
     # Passo 12: Esperar 20 segundos
     time.sleep(20)
 
-    # Passo 13: Apertar ESC
+    # Passo 13: Retire as notificações apertando ESC Enter
+    if N_notif > 0:
+        notif = True  # Isso vai fazer com que a retirada das notificações seja habilitada
+        contador = 0
+    
+    while notif and contador < N_notif:
+        contador += 1
+        pyautogui.press('enter') # isso ira retirar as notificações adicinais
+        time.sleep(2)
+    
     pyautogui.press('esc')
+
 
     # Passo 14: Esperar 3 segundos
     wait_3_seconds()
@@ -95,7 +108,7 @@ for row in range(start_row, end_row + 1):
     # Passo 20: Esperar 3 segundos
     wait_3_seconds()
 
-    if tipos < 0:
+    if tipos > 1:
         # Passo 21: Apertar a tecla 'u'
         pyautogui.press('u')
 
