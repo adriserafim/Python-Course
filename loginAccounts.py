@@ -11,7 +11,7 @@ wb = openpyxl.load_workbook(r"C:\Users\Usuario\OneDrive\Documentos\Arquivos Fút
 sheet = wb.active
 
 # Número de linhas a serem processadas
-start_row = 17
+start_row = 3
 end_row = 46
 
 # Caminho da imagem da área vermelha
@@ -22,7 +22,7 @@ pos= 0, 0
 tempo_espera = 0.63
 tipos = 0
 contador= 0
-N_notif = 1
+N_notif = 0
 notif= False
 
 # Loop para cada linha do arquivo Excel
@@ -75,7 +75,7 @@ for row in range(start_row, end_row + 1):
     while notif and contador < N_notif:
         contador += 1
         pyautogui.press('enter') # isso ira retirar as notificações adicinais
-        time.sleep(2)
+        time.sleep(1.5)
     
     pyautogui.press('esc')
 
