@@ -3,11 +3,13 @@ import time
 import openpyxl
 
 looping = 0
-MAXlooping= 0
+MAXlooping= 150
 
 # Um tempo antes de começar
 time.sleep(5)
 while looping < MAXlooping:
+    looping += 1 # Isso é para adicionar 1 ao numero para uma hora acabar com o looping
+
     # Clique simples com o botão direito do mouse na posição atual do cursor
     #pyautogui.rightClick() # Não funcionou então não mantivemos o projeto
 
