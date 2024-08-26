@@ -3,8 +3,8 @@ import time
 import openpyxl
 
 looping = 0
-MAXlooping= 145
-tipo = 1
+MAXlooping= 1
+tipo = 2
 
 # Essa parte do código é para abrir loots na bolsa ou banco
 if tipo == 1:
@@ -34,3 +34,61 @@ if tipo == 1:
 
         # Aguarda alguns segundos
         time.sleep(1.2)
+
+        # Exibir mensagem de conclusão
+        print("Processo concluído!")
+
+elif tipo == 2:
+    # Um tempo antes de começar
+    time.sleep(5)
+
+    while looping < MAXlooping:
+        looping += 1 # Isso é para adicionar 1 ao numero para uma hora acabar com o looping
+
+        # Pressione espaço para conversar com o NPC
+        pyautogui.press('space')
+
+        time.sleep(0.5)
+
+        pyautogui.click(932, 153)
+
+        time.sleep(0.5)
+
+        pyautogui.click(1174, 265)
+
+        time.sleep(0.5)
+
+        pyautogui.click(1174, 265)
+
+        time.sleep(0.5)
+
+        pyautogui.click(1717, 15)
+
+        time.sleep(0.1)
+
+        pyautogui.click(1675, 102)
+
+        time.sleep(10)
+
+        pyautogui.press('space')
+
+        time.sleep(0.5)
+
+        pyautogui.click(932, 153)
+
+        time.sleep(0.5)
+
+        pyautogui.click(1174, 265)
+
+        time.sleep(0.5)
+
+        pyautogui.click(1174, 265)
+
+        pyautogui.click(1717, 15)
+
+        time.sleep(0.1)
+
+        pyautogui.click(1674, 45)
+
+
+
