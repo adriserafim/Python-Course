@@ -5,6 +5,14 @@ import openpyxl
 looping = 0
 MAXlooping= 1
 tipo = 2
+pos = 0, 0
+tempo_click = 0.1
+
+def wait_loading():
+    time.sleep(0.5)
+
+def wait_screen_loading():
+    time.sleep(10)
 
 # Essa parte do código é para abrir loots na bolsa ou banco
 if tipo == 1:
@@ -21,7 +29,7 @@ if tipo == 1:
         pyautogui.mouseDown(button='right')
 
         # Aguarda um pouco para simular o tempo que o botão direito está pressionado (pode ser 0 se não quiser um delay aqui)
-        time.sleep(0.1)
+        time.sleep(tempo_click)
 
         # Solta o botão direito do mouse
         pyautogui.mouseUp(button='right')
@@ -48,47 +56,86 @@ elif tipo == 2:
         # Pressione espaço para conversar com o NPC
         pyautogui.press('space')
 
-        time.sleep(0.5)
+        # Clicar para visualizar a missão
+        pos = 932, 153
+        pyautogui.moveTo(pos, duration=1)
+        #pyautogui.click(932, 153)
+        pyautogui.mouseDown() # Pressionando e segurando o botão do mouse
+        time.sleep(tempo_click) # Esperando por tempo_espera segundos
+        pyautogui.mouseUp() # Soltando o botão do mouse
 
-        pyautogui.click(932, 153)
+        # Cliecar para aceitar a missão
+        pos = 1174, 265
+        pyautogui.moveTo(pos, duration=1)
+        pyautogui.mouseDown()
+        time.sleep(tempo_click)
+        pyautogui.mouseUp()
 
-        time.sleep(0.5)
+        # Espere carregar o temino da missão
+        wait_loading()
 
-        pyautogui.click(1174, 265)
+        # Cliecar para completar a missão
+        pyautogui.mouseDown()
+        time.sleep(tempo_click)
+        pyautogui.mouseUp()
 
-        time.sleep(0.5)
+        # Clique para abrir a mudança de channel
+        pos = 1717, 15
+        pyautogui.moveTo(pos, duration=1)
+        pyautogui.mouseDown()
+        time.sleep(tempo_click)
+        pyautogui.mouseUp()
 
-        pyautogui.click(1174, 265)
+        # Clique no channel desejado
+        pos = 1675, 102
+        pyautogui.moveTo(pos, duration=1)
+        pyautogui.mouseDown()
+        time.sleep(tempo_click)
+        pyautogui.mouseUp()
 
-        time.sleep(0.5)
+        wait_screen_loading()
 
-        pyautogui.click(1717, 15)
-
-        time.sleep(0.1)
-
-        pyautogui.click(1675, 102)
-
-        time.sleep(10)
-
+        # Pressione espaço para conversar com o NPC
         pyautogui.press('space')
 
-        time.sleep(0.5)
+        # Clicar para visualizar a missão
+        pos = 932, 153
+        pyautogui.moveTo(pos, duration=1)
+        #pyautogui.click(932, 153)
+        pyautogui.mouseDown() # Pressionando e segurando o botão do mouse
+        time.sleep(tempo_click) # Esperando por tempo_espera segundos
+        pyautogui.mouseUp() # Soltando o botão do mouse
 
-        pyautogui.click(932, 153)
+        # Cliecar para aceitar a missão
+        pos = 1174, 265
+        pyautogui.moveTo(pos, duration=1)
+        pyautogui.mouseDown()
+        time.sleep(tempo_click)
+        pyautogui.mouseUp()
 
-        time.sleep(0.5)
+        # Espere carregar o temino da missão
+        wait_loading()
 
-        pyautogui.click(1174, 265)
+        # Cliecar para completar a missão
+        pyautogui.mouseDown()
+        time.sleep(tempo_click)
+        pyautogui.mouseUp()
 
-        time.sleep(0.5)
+        # Clique para abrir a mudança de channel
+        pos = 1717, 15
+        pyautogui.moveTo(pos, duration=1)
+        pyautogui.mouseDown()
+        time.sleep(tempo_click)
+        pyautogui.mouseUp()
 
-        pyautogui.click(1174, 265)
+        # Clique no channel desejado
+        pos = 1674, 45
+        pyautogui.moveTo(pos, duration=1)
+        pyautogui.mouseDown()
+        time.sleep(tempo_click)
+        pyautogui.mouseUp()
 
-        pyautogui.click(1717, 15)
-
-        time.sleep(0.1)
-
-        pyautogui.click(1674, 45)
+        wait_screen_loading()
 
 
 
