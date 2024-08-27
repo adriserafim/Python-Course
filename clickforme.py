@@ -3,7 +3,7 @@ import time
 import openpyxl
 
 looping = 0
-MAXlooping= 1
+MAXlooping= 2500
 tipo = 2
 pos = 0, 0
 tempo_click = 0.1
@@ -34,7 +34,7 @@ if tipo == 1:
         # Solta o botão direito do mouse
         pyautogui.mouseUp(button='right')
 
-        # Aguarda 3,5 segundos
+        # Aguarda alguns segundos
         time.sleep(0.2)
 
         # Pressiona a tecla Enter
@@ -43,8 +43,8 @@ if tipo == 1:
         # Aguarda alguns segundos
         time.sleep(1.2)
 
-        # Exibir mensagem de conclusão
-        print("Processo concluído!")
+    # Exibir mensagem de conclusão
+    print("Processo concluído!")
 
 elif tipo == 2:
     # Um tempo antes de começar
@@ -93,6 +93,11 @@ elif tipo == 2:
         time.sleep(tempo_click)
         pyautogui.mouseUp()
 
+        # Pressione enter
+        time.sleep(0.2)
+        pyautogui.press('enter')
+
+        # Esperar a tela carregar
         wait_screen_loading()
 
         # Pressione espaço para conversar com o NPC
@@ -135,7 +140,12 @@ elif tipo == 2:
         time.sleep(tempo_click)
         pyautogui.mouseUp()
 
+        # Pressione enter
+        time.sleep(0.2)
+        pyautogui.press('enter')
+
+        # Esperar a tela carregar
         wait_screen_loading()
-
-
-
+    
+    # Exibir mensagem de conclusão
+    print("Processo concluído!")
