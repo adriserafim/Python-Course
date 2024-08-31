@@ -3,7 +3,7 @@ import time
 import openpyxl
 
 looping = 0
-MAXlooping= 2500
+MAXlooping = 2500 
 tipo = 2
 pos = 0, 0
 tempo_click = 0.1
@@ -61,7 +61,7 @@ elif tipo == 2:
         pyautogui.moveTo(pos, duration=1)
         #pyautogui.click(932, 153)
         pyautogui.mouseDown() # Pressionando e segurando o botão do mouse
-        time.sleep(tempo_click) # Esperando por tempo_espera segundos
+        time.sleep(tempo_click) # Esperando por tempo_click segundos
         pyautogui.mouseUp() # Soltando o botão do mouse
 
         # Cliecar para aceitar a missão
@@ -106,10 +106,9 @@ elif tipo == 2:
         # Clicar para visualizar a missão
         pos = 932, 153
         pyautogui.moveTo(pos, duration=1)
-        #pyautogui.click(932, 153)
-        pyautogui.mouseDown() # Pressionando e segurando o botão do mouse
-        time.sleep(tempo_click) # Esperando por tempo_espera segundos
-        pyautogui.mouseUp() # Soltando o botão do mouse
+        pyautogui.mouseDown()
+        time.sleep(tempo_click)
+        pyautogui.mouseUp()
 
         # Cliecar para aceitar a missão
         pos = 1174, 265
