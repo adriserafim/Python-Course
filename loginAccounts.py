@@ -14,7 +14,7 @@ wb = openpyxl.load_workbook(r"C:\Users\Usuario\OneDrive\Documentos\Arquivos Fút
 sheet = wb.active
 
 # Número de linhas a serem processadas
-start_row = 2
+start_row = 26
 end_row = 49
 
 # Caminho da imagem da área vermelha
@@ -23,7 +23,8 @@ imagem_base = r"C:\Users\Usuario\Documents\Curso de Python\Projetos Autônomos\I
 # Definindo as coordenadas de destino
 pos= 0, 0
 tempo_click = 0.1
-tipos = 1
+tipos = 2
+event = True
 contador= 0
 N_notif = 0
 notif= False
@@ -102,6 +103,35 @@ for row in range(start_row, end_row + 1):
     pyautogui.press('enter')
     wait_loading()
 
+    # Eventos especiais de login
+    if event:
+        # Mostrar as abas de recompensa de login
+        pos = 680, 367
+        pyautogui.moveTo(pos, duration=1)
+        wait_loading()
+        pyautogui.mouseDown()
+        time.sleep(tempo_click)
+        pyautogui.mouseUp()
+
+        # Abrir das moedas de login
+        pos = 680, 405
+        pyautogui.moveTo(pos, duration=0.3)
+        wait_loading()
+        pyautogui.mouseDown()
+        time.sleep(tempo_click)
+        pyautogui.mouseUp()
+
+        # Resgatar o item do evento
+        pos = 1076, 816
+        pyautogui.moveTo(pos, duration=1)
+        wait_loading()
+        pyautogui.mouseDown()
+        time.sleep(tempo_click)
+        pyautogui.mouseUp()
+
+        # Esperar carregar a mensagem
+        wait_loading()
+
     # Apertar ESC para fechar a tela de evento
     pyautogui.press('esc')
     
@@ -111,34 +141,35 @@ for row in range(start_row, end_row + 1):
 
         # Clicar para abrir a pastas com os e-mails
         pos = 818, 183
-        pyautogui.moveTo(pos, duration=2)
+        pyautogui.moveTo(pos, duration=1)
         pyautogui.mouseDown()
         time.sleep(tempo_click)
         pyautogui.mouseUp()
 
         # Clicar para selecionar todos os e-mails
         pos = 588, 655
-        pyautogui.moveTo(pos, duration=1.5)
+        pyautogui.moveTo(pos, duration=1)
         pyautogui.mouseDown()
         time.sleep(tempo_click)
         pyautogui.mouseUp()
 
         # Clicar para receber os itens anexados aos e-mails
         pos = 741, 658
-        pyautogui.moveTo(pos, duration=1)
+        pyautogui.moveTo(pos, duration=0.5)
         pyautogui.mouseDown()
         time.sleep(tempo_click)
         pyautogui.mouseUp()
 
         # Clicar para deletar os e-mails
         pos = 658, 653
-        pyautogui.moveTo(pos, duration=0.65)
+        pyautogui.moveTo(pos, duration=3.5) # O tempo dessa locomoção tem que ser grande por conta do carregamento do jogo
         pyautogui.mouseDown()
         time.sleep(tempo_click)
         pyautogui.mouseUp()
 
         # Apertar ESC para fechar a tela de e-mails
         pyautogui.press('esc')
+        wait_loading()
 
     # Clicar 2 vezes na área de cor vermelha da tela
     # Localizar a área com base na imagem fornecida
